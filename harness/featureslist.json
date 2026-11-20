@@ -190,6 +190,179 @@
       "started": "2026-08-04",
       "review_rounds": 0,
       "closed": "2026-08-04"
+    },
+    {
+      "id": "PHASE-0",
+      "title": "Phase 0: Technical Research",
+      "description": "Audit base meshes, licensing, Blender/ML architecture, data model, MVP plan.",
+      "acceptance_criteria": [
+        "ARCHITECTURE.md",
+        "TECHNICAL_DECISIONS.md",
+        "IMPLEMENTATION_PLAN.md",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": []
+    },
+    {
+      "id": "PHASE-1",
+      "title": "Phase 1: 3D Foundation",
+      "description": "Integrate Blender, BlenderBridge, load base human model, render views, save/reload.",
+      "acceptance_criteria": [
+        "BlenderBridge funcional",
+        "modelo cargado",
+        "render frontal/lateral/posterior",
+        "save/reload ok",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-0"
+      ]
+    },
+    {
+      "id": "PHASE-2",
+      "title": "Phase 2: Parametric Anatomy",
+      "description": "Skeletal params, muscle registry, localized deformation, constraints, independence validation.",
+      "acceptance_criteria": [
+        "esqueleto parametrico",
+        "registro muscular",
+        "deformacion localizada",
+        "validacion independencia",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-0"
+      ]
+    },
+    {
+      "id": "PHASE-3",
+      "title": "Phase 3: Photo Reconstruction",
+      "description": "Preprocessing, pose, landmarks, anthropometry, multiview fitting, optimization, metadata.",
+      "acceptance_criteria": [
+        "pipeline reconstruccion",
+        "pose/landmarks",
+        "fitting multivista",
+        "metadata persistida",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-0"
+      ]
+    },
+    {
+      "id": "PHASE-4",
+      "title": "Phase 4: Surface and Skin",
+      "description": "Surface geometry, UV, skin materials, realistic rendering, texture deformation.",
+      "acceptance_criteria": [
+        "geometria superficie",
+        "UV",
+        "material piel",
+        "render realista",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-0"
+      ]
+    },
+    {
+      "id": "PHASE-5",
+      "title": "Phase 5: General Interaction Engine",
+      "description": "Surface attachment, object positioning, collision, deformation tracking, simulation interfaces.",
+      "acceptance_criteria": [
+        "attachment superficie",
+        "posicionamiento",
+        "colision",
+        "tracking",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-0"
+      ]
+    },
+    {
+      "id": "PHASE-6",
+      "title": "Phase 6: Application Modules",
+      "description": "Fitness, fashion, body art, ergonomics, aesthetics, animation, education modules.",
+      "acceptance_criteria": [
+        "modulo fitness",
+        "modulo fashion",
+        "modulo body_art",
+        "al menos 3 modulos",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-0"
+      ]
+    },
+    {
+      "id": "PHASE-7",
+      "title": "Phase 7: Platform Interface",
+      "description": "3D viewport, parameter editing, config management, reconstruction interface, export/comparison.",
+      "acceptance_criteria": [
+        "viewport 3D",
+        "edicion parametros",
+        "gestion configuraciones",
+        "exportacion",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-0"
+      ]
+    },
+    {
+      "id": "MVP-001",
+      "title": "MVP: personalized 3D digital twin from 3 photos",
+      "description": "Prove central hypothesis: 3 photos -> persistent 3D digital twin with editable muscles.",
+      "acceptance_criteria": [
+        "reconstruccion desde 3 fotos",
+        "twin persistente",
+        "modificar deltoid/pectoral/biceps/abdomen",
+        "guardar/comparar configuraciones",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-3"
+      ]
+    },
+    {
+      "id": "BASE-001",
+      "title": "Evaluate base human body providers",
+      "description": "Compare SMPL-X, MakeHuman, MB-Lab, Blender-native for topology, rigging, extensibility, licensing.",
+      "acceptance_criteria": [
+        "comparativa documentada",
+        "licencias",
+        "recomendacion",
+        "abstraccion BaseBodyProvider",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-0"
+      ]
+    },
+    {
+      "id": "OPT-001",
+      "title": "Optimization engine for reconstruction",
+      "description": "Minimize difference between reconstructed model and photographic/measurement evidence.",
+      "acceptance_criteria": [
+        "funcion de perdida",
+        "optimizador benchmark",
+        "incertidumbre",
+        "validacion",
+        "init.sh en verde"
+      ],
+      "status": "pending",
+      "depends_on": [
+        "PHASE-3"
+      ]
     }
   ]
 }
