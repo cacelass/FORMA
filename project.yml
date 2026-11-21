@@ -9,10 +9,10 @@
 project_name: FORMA
 project_slug: forma
 project_author_name: cacelass
-project_description: Parametric Human Digital Twin Platform
+project_description: Plataforma modular para reconstruir, representar, modificar, simular y analizar cuerpos humanos individuales mediante gemelos digitales 3D persistentes y anatómicamente restringidos, con capas independientes (esqueleto, músculos, tejido adiposo, piel/superficie) y extensible a múltiples aplicaciones.
 project_version: 0.1.0
 # La versión del .venv. uv la resuelve desde requires-python en pyproject.toml.
-python_version: 3.12
+python_version: 3.13
 
 # Capacidades: los agentes las consultan para no ofrecer acciones sobre
 # infraestructura que este proyecto no tiene.

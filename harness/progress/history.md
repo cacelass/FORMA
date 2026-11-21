@@ -201,3 +201,19 @@ $ ./init.sh                                            ->  ENTORNO LISTO  0 avis
 ```
 
 </details>
+
+## SCOPE-001 — Definir qué se quiere resolver
+
+- **Cerrada:** 2026-11-21
+- **Verificación:** ./init.sh en verde · 7 passed in 0.10s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — define el rumbo del proyecto en vault/01_PROYECTO/objetivo.md y desbloquea DESIGN-001.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+./init.sh -> ENTORNO LISTO 0 avisos; 7 passed in 0.10s; objetivo.md con 4 apartados verificado
+```
+
+</details>
