@@ -217,3 +217,19 @@ $ ./init.sh                                            ->  ENTORNO LISTO  0 avis
 ```
 
 </details>
+
+## DESIGN-001 — Decidir cómo se va a resolver
+
+- **Cerrada:** 2026-11-21
+- **Verificación:** ./init.sh en verde · 7 passed in 0.09s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — define arquitectura y desbloquea CORE-001 y PHASE-0.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+./init.sh -> ENTORNO LISTO 0 avisos; 7 passed; arquitectura.md reescrita
+```
+
+</details>

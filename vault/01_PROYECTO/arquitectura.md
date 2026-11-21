@@ -1,21 +1,58 @@
-# Arquitectura — MeshHarmes
+# Arquitectura — FORMA
 
-> Arnés de agentes e infraestructura de proyecto para trabajo general en Python.
->
-> Este documento lo rellena `DESIGN-001`: cuando el proyecto tenga piezas
-> propias, descríbelas aquí junto a las alternativas descartadas y por qué.
+## Piezas del sistema
+
+1. **Núcleo anatómico** (`forma/core/`): modelo paramétrico con capas independientes:
+   - Esqueleto: proporciones óseas, articulaciones, restricciones, asimetrías.
+   - Sistema muscular: músculos parametrizados (origen/inserción, volumen, longitud, grosor).
+   - Tejido adiposo: grasa subcutánea regional, separando medido de estimado.
+   - Piel y superficie: geometría externa, UV, materiales, SSS.
+2. **Pipeline de reconstrucción** (`forma/reconstruction/`): fotos → pose/landmarks → antropometría → fitting multivista → optimización → gemelo persistente.
+3. **Motor de interacción** (`forma/interaction/`): attachment a superficie, posicionamiento de objetos, colisión, tracking.
+4. **Persistencia y versionado** (`forma/persistence/`): gemelo digital por persona, configuraciones guardables/comparables, estimación de incertidumbre.
+5. **Módulos de aplicación** (`forma/modules/`): fitness, fashion, body art, ergonomía, etc. Consumen el núcleo, no lo modifican.
+6. **Interfaz de plataforma** (`forma/ui/`): viewport 3D, edición de parámetros, gestión de configuraciones, exportación.
+
+## Flujo
+
+```
+fotos (3 vistas) → preprocessing → pose/landmarks → antropometría
+  → fitting multivista → optimización → gemelo persistente (capas)
+  → edición paramétrica por capa → guardar/comparar configuraciones
+  → exportación / consumo por módulos de aplicación
+```
+
+El núcleo anatómico no depende del motor de render ni de la interfaz.
 
 ## Stack
 
-- **Lenguaje:** Python 3.12+ (el `.venv` de referencia es 3.13)
-- **Entorno y dependencias:** uv (`uv.lock`)
-- **Calidad:** ruff, mypy, pytest, bandit, pip-audit
-- **Conocimiento:** vault Obsidian + graphify + RAG local opcional (chromadb)
+- Lenguaje: Python 3.12+ (el `.venv` de referencia es 3.13).
+- Entorno y dependencias: uv (`uv.lock`).
+- Calidad: ruff, mypy, pytest, bandit, pip-audit.
+- Conocimiento: vault Obsidian + graphify + RAG local opcional (chromadb).
+- 3D (futuro): a decidir en BASE-001 (SMPL-X / MakeHuman / MB-Lab / Blender-native).
+
+## Alternativas consideradas y descartadas
+
+- **Monolito por aplicación** (un módulo por caso de uso, con su propia geometría): descartado porque duplica el modelo anatómico y rompe la reutilización del gemelo entre aplicaciones; el principio central es "una persona, un gemelo persistente, múltiples aplicaciones".
+- **Depender del motor de render para el núcleo**: descartado para que el gemelo sea consumible como biblioteca/servicio sin GPU ni UI.
+
+## Riesgos conocidos
+
+- Fitting multivista desde 3 fotos puede ser subdeterminado; se estima incertidumbre por parámetro (OPT-001).
+- Elección del proveedor base de cuerpo humano (BASE-001) bloquea PHASE-1..7; se deja para después de PHASE-0.
+- Blender como dependencia pesada: a encapsular tras `BaseBodyProvider` para poder sustituirlo.
+
+## Decisiones diferidas
+
+- Proveedor base de cuerpo humano (BASE-001).
+- Formato de persistencia del gemelo (pickle vs. glTF vs. formato propio).
+- Motor de render final (Blender headless vs. trimesh/pyrender).
 
 ## Estructura del repositorio
 
 ```
-app/                   — El código del proyecto (renómbralo al empezar)
+forma/                 — El código del proyecto (project_slug en project.yml)
 tests/                 — Tests del proyecto
 
 agents/                — Sistema multi-agente del arnés (stdlib pura)
@@ -28,11 +65,6 @@ agents/                — Sistema multi-agente del arnés (stdlib pura)
 
 harness/               — El arnés: backlog, progreso, memoria
 vault/                 — Conocimiento estable (Obsidian)
-├── 00_META/           — Índice para IA y plantillas
-├── 01_PROYECTO/       — Objetivo, arquitectura, decisiones, roadmap
-├── 04_VISUALIZACIONES/— Grafo de conocimiento
-├── 05_AGENTES/        — Ficha de cada agente
-└── 06_OBSERVACIONES/  — Hallazgos sueltos
 docs/                  — Sphinx
 ```
 
@@ -42,12 +74,3 @@ docs/                  — Sphinx
 Agentes Python:  run() → agents/permissions.py → acción          (siempre activa)
 Asistente:       herramienta → agents/policy_guard.py → Bash/... (opcional, sin cablear)
 ```
-
-La primera está en código y no se puede rodear. La segunda necesita un hook
-`PreToolUse` que este repo **no** define a propósito: si el comando del hook
-falla, el asistente se queda sin herramientas. El snippet para activarla está
-en `AGENTS.md`.
-
-Ninguna de las dos es un sandbox: convierten accidentes e inyecciones
-evidentes en un error legible. El aislamiento real depende de dónde ejecutes
-el asistente.
