@@ -233,3 +233,19 @@ $ ./init.sh                                            ->  ENTORNO LISTO  0 avis
 ```
 
 </details>
+
+## ONBOARD-001 — Entender el proyecto
+
+- **Cerrada:** 2026-11-21
+- **Verificación:** ./init.sh en verde · 7 passed in 0.10s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — cierra el arranque en frio y desbloquea ONBOARD-002.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+bootstrap describe success=true; project.yml description propia; objetivo.md 4 apartados; README objetivo en frase propia; ./init.sh ENTORNO LISTO 0 avisos; 7 passed
+```
+
+</details>

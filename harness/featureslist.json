@@ -142,8 +142,11 @@
         "El README describe el objetivo en una frase propia",
         "./init.sh termina con ENTORNO LISTO"
       ],
-      "status": "pending",
-      "depends_on": []
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-21",
+      "review_rounds": 0,
+      "closed": "2026-11-21"
     },
     {
       "id": "ONBOARD-002",

@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Entender el proyecto (ONBOARD-001)
+
+## [Unreleased] — 2026-11-21
+
+### Añadido
+
 - Decidir cómo se va a resolver (DESIGN-001)
 
 ## [Unreleased] — 2026-11-21
