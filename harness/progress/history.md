@@ -377,3 +377,19 @@ tests/test_modules.py 4 passed; make check verde
 ```
 
 </details>
+
+## IMPROVE-001 — Mejoras ML: optimizadores, metricas, persistencia
+
+- **Cerrada:** 2026-11-22
+- **Verificación:** ./init.sh en verde · 35 passed in 0.46s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — motor ML y persistencia mejorados al maximo disponible.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests: 563 passed 1 skipped; make check verde; init.sh ENTORNO LISTO
+```
+
+</details>

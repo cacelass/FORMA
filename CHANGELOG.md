@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Mejoras ML: optimizadores, metricas, persistencia (IMPROVE-001)
+
+## [Unreleased] — 2026-11-22
+
+### Añadido
+
 - Phase 6: Application Modules (PHASE-6)
 
 ## [Unreleased] — 2026-11-22
