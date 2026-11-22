@@ -297,3 +297,19 @@ make lint: All checks passed; make typecheck: Success; make test: 535 passed 1 s
 ```
 
 </details>
+
+## CORE-001 — Primera pieza funcional de punta a punta
+
+- **Cerrada:** 2026-11-22
+- **Verificación:** ./init.sh en verde · 7 passed in 0.12s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — vertical slice documentado.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+uv run python -m forma hello --name FORMA -> 'Hola, FORMA.' exit 0; make check verde (535 passed); README ejecucion documentada
+```
+
+</details>

@@ -1,7 +1,7 @@
 # FORMA
 
 ![Python](https://img.shields.io/badge/Python-3.12+-blue?logo=python&logoColor=white)
-![Version](https://img.shields.io/badge/Version-0.1.6-green)
+![Version](https://img.shields.io/badge/Version-0.1.7-green)
 ![Author](https://img.shields.io/badge/Author-cacelass-blueviolet)
 
 > Parametric Human Digital Twin Platform.
@@ -80,6 +80,25 @@ Y para arrancar el ciclo de trabajo en tu asistente:
 
 > Lee `AGENTS.md` y sigue el protocolo: ejecuta `./init.sh`, lee
 > `harness/progress/` y elige la primera feature pendiente.
+
+---
+
+## Ejecución
+
+El punto de entrada del paquete es la CLI `forma`:
+
+```bash
+uv run python -m forma hello --name FORMA
+```
+
+Salida esperada:
+
+```
+Hola, FORMA.
+```
+
+Código de salida `0`. Sin subcomando, argparse devuelve código `2` (error de uso).
+Para la versión: `uv run python -m forma --version`.
 
 ---
 
