@@ -405,6 +405,22 @@
       ],
       "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
       "touched_files": []
+    },
+    {
+      "id": "OPT-002",
+      "title": "Motor de optimizacion puro Python",
+      "description": "Motor de optimizacion puro Python",
+      "acceptance_criteria": [
+        "existe forma/optimization/ con loss, optimizador y estimacion de incertidumbre",
+        "tests cubren convergencia y validacion",
+        "make check pasa",
+        "init.sh en verde"
+      ],
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-22",
+      "review_rounds": 0,
+      "closed": "2026-11-22"
     }
   ]
 }

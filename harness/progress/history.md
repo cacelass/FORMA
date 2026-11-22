@@ -329,3 +329,19 @@ vault doc + forma/providers/base_body_provider.py + tests/test_providers.py 2 pa
 ```
 
 </details>
+
+## OPT-002 — Motor de optimizacion puro Python
+
+- **Cerrada:** 2026-11-22
+- **Verificación:** ./init.sh en verde · 15 passed in 0.12s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — motor de optimizacion puro Python disponible para OPT-001 cuando se desbloquee PHASE-3.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests/test_optimization.py 6 passed; make check verde (541 passed); init.sh ENTORNO LISTO
+```
+
+</details>

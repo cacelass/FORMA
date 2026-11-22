@@ -1,6 +1,6 @@
 [project]
 name = "forma"
-version = "0.1.8"
+version = "0.1.9"
 description = "Parametric Human Digital Twin Platform"
 authors = [
   { name = "cacelass" }
@@ -12,7 +12,9 @@ license = { text = "MIT" }
 # puro, así que `uv sync` en un repo recién clonado no descarga nada de
 # producción. Añade aquí lo que tu proyecto necesite — `uv add <paquete>`, o
 # pídeselo al agente `env`, que es el dueño de esta sección.
-dependencies = []
+dependencies = [
+    "numpy>=1.26",
+]
 
 [project.optional-dependencies]
 dev = [
