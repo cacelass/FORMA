@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Evaluate base human body providers (BASE-001)
+
+## [Unreleased] — 2026-11-22
+
+### Añadido
+
 - Primera pieza funcional de punta a punta (CORE-001)
 
 ## [Unreleased] — 2026-11-22

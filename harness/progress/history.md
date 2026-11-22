@@ -313,3 +313,19 @@ uv run python -m forma hello --name FORMA -> 'Hola, FORMA.' exit 0; make check v
 ```
 
 </details>
+
+## BASE-001 — Evaluate base human body providers
+
+- **Cerrada:** 2026-11-22
+- **Verificación:** ./init.sh en verde · 9 passed in 0.07s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — desbloquea PHASE-1 (interfaz lista).
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+vault doc + forma/providers/base_body_provider.py + tests/test_providers.py 2 passed; make check verde
+```
+
+</details>

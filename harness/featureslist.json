@@ -364,10 +364,13 @@
         "abstraccion BaseBodyProvider",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "done",
       "depends_on": [
         "PHASE-0"
-      ]
+      ],
+      "started": "2026-11-22",
+      "review_rounds": 0,
+      "closed": "2026-11-22"
     },
     {
       "id": "OPT-001",
