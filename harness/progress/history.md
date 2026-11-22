@@ -345,3 +345,19 @@ tests/test_optimization.py 6 passed; make check verde (541 passed); init.sh ENTO
 ```
 
 </details>
+
+## PHASE-2 — Phase 2: Parametric Anatomy
+
+- **Cerrada:** 2026-11-22
+- **Verificación:** ./init.sh en verde · 20 passed in 0.13s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — modelo parametrico puro Python disponible.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests/test_core_model.py 5 passed; make check verde
+```
+
+</details>

@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Phase 2: Parametric Anatomy (PHASE-2)
+
+## [Unreleased] — 2026-11-22
+
+### Añadido
+
 - Motor de optimizacion puro Python (OPT-002)
 
 ## [Unreleased] — 2026-11-22
