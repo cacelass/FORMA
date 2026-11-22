@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Phase 6: Application Modules (PHASE-6)
+
+## [Unreleased] — 2026-11-22
+
+### Añadido
+
 - Phase 2: Parametric Anatomy (PHASE-2)
 
 ## [Unreleased] — 2026-11-22

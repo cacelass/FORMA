@@ -361,3 +361,19 @@ tests/test_core_model.py 5 passed; make check verde
 ```
 
 </details>
+
+## PHASE-6 — Phase 6: Application Modules
+
+- **Cerrada:** 2026-11-22
+- **Verificación:** ./init.sh en verde · 24 passed in 0.18s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — 3 modulos de aplicacion disponibles.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests/test_modules.py 4 passed; make check verde
+```
+
+</details>
