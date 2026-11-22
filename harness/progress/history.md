@@ -249,3 +249,19 @@ bootstrap describe success=true; project.yml description propia; objetivo.md 4 a
 ```
 
 </details>
+
+## ONBOARD-002 — Qué se sabe ya y qué agentes hacen falta
+
+- **Cerrada:** 2026-11-22
+- **Verificación:** ./init.sh en verde · 7 passed in 0.06s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — cierra onboarding; mejoras proactivas: base_agent warnings None, rag index_urls acepta str, mutation prompt.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+research find_papers arxiv success 10 refs; rag index_urls 4 URLs OK; rag search encuentra URLs; estado-del-arte.md; suggest_agents ejecutado; prompts_sync verde; ./init.sh ENTORNO LISTO; 7 passed
+```
+
+</details>

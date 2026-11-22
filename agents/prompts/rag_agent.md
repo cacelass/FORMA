@@ -80,7 +80,7 @@ buscar si detecta el desajuste.
 | Acción | Argumentos |
 |--------|------------|
 | `run rag index` | `--rebuild` |
-| `run rag index_urls` | `--urls` (obligatorio) |
+| `run rag index_urls` | `--urls` |
 | `run rag search` | `--query` (obligatorio) · `--top_k`, `--hybrid`, `--min_score`, `--file_type`, `--source`, `--max_per_source`, `--expand` |
 | `run rag status` | — |
 | `run rag evaluate` | `--top_k` |
