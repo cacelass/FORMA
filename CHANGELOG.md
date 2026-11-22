@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Batería de calidad en verde (QA-001)
+
+## [Unreleased] — 2026-11-22
+
+### Añadido
+
 - Phase 0: Technical Research (PHASE-0)
 
 ## [Unreleased] — 2026-11-22

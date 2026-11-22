@@ -281,3 +281,19 @@ research find_papers arxiv success 10 refs; rag index_urls 4 URLs OK; rag search
 ```
 
 </details>
+
+## QA-001 — Batería de calidad en verde
+
+- **Cerrada:** 2026-11-22
+- **Verificación:** ./init.sh en verde · 7 passed in 0.06s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — calidad en verde.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+make lint: All checks passed; make typecheck: Success; make test: 535 passed 1 skipped; ./init.sh ENTORNO LISTO 0 avisos
+```
+
+</details>

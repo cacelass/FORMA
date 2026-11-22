@@ -23,7 +23,6 @@ from typing import Any
 
 from agents.tools.registry import register_tool
 
-
 MEMORY_DIRNAME = "memory"
 DECAY_INTERVAL = 3600  # 1 hour in seconds
 DEFAULT_TTL = 86400 * 7  # 1 week
@@ -81,7 +80,7 @@ class MemoryTool:
         existía o quedó invalidada.
         """
         bank = _load_bank(workspace_dir)
-        for kind, entries in bank.items():
+        for kind, entries in bank.items():  # noqa: B007
             if not isinstance(entries, dict) or key not in entries:
                 continue
             entry = entries[key]
@@ -155,10 +154,10 @@ class MemoryTool:
     def snapshot(workspace_dir: str | Path) -> dict[str, list[dict]]:
         bank = _load_bank(workspace_dir)
         snapshot: dict[str, list[dict]] = {}
-        for kind, entries in bank.items():
+        for kind, entries in bank.items():  # noqa: B007
             if not isinstance(entries, dict):
                 continue
-            for key, entry in entries.items():
+            for key, entry in entries.items():  # noqa: B007
                 snapshot.setdefault(kind, []).append({"key": key, "value": entry["value"]})
         return snapshot
 
@@ -186,10 +185,10 @@ class MemoryTool:
         bank = _load_bank(workspace_dir)
         now = time.time()
         affected = 0
-        for kind, entries in bank.items():
+        for kind, entries in bank.items():  # noqa: B007
             if not isinstance(entries, dict):
                 continue
-            for key, entry in list(entries.items()):
+            for key, entry in list(entries.items()):  # noqa: B007
                 if entry["access_count"] < min_access and (now - entry["created_at"]) > DECAY_INTERVAL:
                     entry["ttl"] = max(300, int(entry["ttl"] * factor))
                     affected += 1
@@ -206,10 +205,10 @@ class MemoryTool:
         bank = _load_bank(workspace_dir)
         candidates: list[dict] = []
         now = time.time()
-        for kind, entries in bank.items():
+        for kind, entries in bank.items():  # noqa: B007
             if not isinstance(entries, dict):
                 continue
-            for key, entry in entries.items():
+            for key, entry in entries.items():  # noqa: B007
                 if _is_expired(entry):
                     continue
                 recency = (now - entry["accessed_at"]) / max(1, entry["ttl"])
@@ -242,7 +241,7 @@ class MemoryTool:
     def recall(workspace_dir: str | Path, key: str) -> dict | None:
         """Quick shorthand: read from any kind by key."""
         bank = _load_bank(workspace_dir)
-        for kind, entries in bank.items():
+        for kind, entries in bank.items():  # noqa: B007
             if not isinstance(entries, dict):
                 continue
             if key in entries:
@@ -284,19 +283,19 @@ def _is_expired(entry: dict) -> bool:
 
 def _prune(bank: dict) -> None:
     now = time.time()
-    for kind, entries in bank.items():
+    for _kind, entries in bank.items():
         if not isinstance(entries, dict):
             continue
-        for key, entry in list(entries.items()):
+        for key, entry in list(entries.items()):  # noqa: B007
             if now - entry["created_at"] > entry.get("ttl", DEFAULT_TTL):
                 del entries[key]
     total = sum(len(v) for v in bank.values() if isinstance(v, dict))
     if total > MAX_ENTRIES:
         all_entries = []
-        for kind, entries in bank.items():
+        for kind, entries in bank.items():  # noqa: B007
             if not isinstance(entries, dict):
                 continue
-            for key, entry in entries.items():
+            for key, entry in entries.items():  # noqa: B007
                 all_entries.append((kind, key, entry))
         all_entries.sort(key=lambda e: e[2]["accessed_at"])
         excess = total - MAX_ENTRIES
