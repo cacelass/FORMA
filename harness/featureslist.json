@@ -236,10 +236,12 @@
         "save/reload ok",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "blocked",
       "depends_on": [
         "PHASE-0"
-      ]
+      ],
+      "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
+      "touched_files": []
     },
     {
       "id": "PHASE-2",
@@ -252,10 +254,12 @@
         "validacion independencia",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "blocked",
       "depends_on": [
         "PHASE-0"
-      ]
+      ],
+      "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
+      "touched_files": []
     },
     {
       "id": "PHASE-3",
@@ -268,10 +272,12 @@
         "metadata persistida",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "blocked",
       "depends_on": [
         "PHASE-0"
-      ]
+      ],
+      "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
+      "touched_files": []
     },
     {
       "id": "PHASE-4",
@@ -284,10 +290,12 @@
         "render realista",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "blocked",
       "depends_on": [
         "PHASE-0"
-      ]
+      ],
+      "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
+      "touched_files": []
     },
     {
       "id": "PHASE-5",
@@ -300,10 +308,12 @@
         "tracking",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "blocked",
       "depends_on": [
         "PHASE-0"
-      ]
+      ],
+      "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
+      "touched_files": []
     },
     {
       "id": "PHASE-6",
@@ -316,10 +326,12 @@
         "al menos 3 modulos",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "blocked",
       "depends_on": [
         "PHASE-0"
-      ]
+      ],
+      "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
+      "touched_files": []
     },
     {
       "id": "PHASE-7",
@@ -332,10 +344,12 @@
         "exportacion",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "blocked",
       "depends_on": [
         "PHASE-0"
-      ]
+      ],
+      "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
+      "touched_files": []
     },
     {
       "id": "MVP-001",
@@ -348,10 +362,12 @@
         "guardar/comparar configuraciones",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "blocked",
       "depends_on": [
         "PHASE-3"
-      ]
+      ],
+      "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
+      "touched_files": []
     },
     {
       "id": "BASE-001",
@@ -383,10 +399,12 @@
         "validacion",
         "init.sh en verde"
       ],
-      "status": "pending",
+      "status": "blocked",
       "depends_on": [
         "PHASE-3"
-      ]
+      ],
+      "blocked_reason": "Requiere infraestructura 3D (Blender, proveedor base) no disponible en este entorno. Interfaz BaseBodyProvider creada (BASE-001). Se desbloquea al instalar el proveedor y cerrar PHASE-1.",
+      "touched_files": []
     }
   ]
 }
