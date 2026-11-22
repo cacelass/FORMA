@@ -13,7 +13,9 @@ from forma.modules.fitness import FitnessModule
 def _twin() -> DigitalTwin:
     return DigitalTwin(
         person_id="p",
-        skeleton=__import__("forma.core.model", fromlist=["Skeleton"]).Skeleton(bone_lengths={"leg": 1.7}),
+        skeleton=__import__("forma.core.model", fromlist=["Skeleton"]).Skeleton(
+            bone_lengths={"leg": 1.7}
+        ),
         muscles={"b": Muscle(name="b", origin="", insertion="", volume=2.0)},
         skin=Skin(vertex_count=1000),
     )

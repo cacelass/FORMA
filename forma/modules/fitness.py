@@ -16,4 +16,4 @@ class FitnessModule:
         if height_m <= 0:
             raise ValueError("altura inválida")
         mass = self.twin.total_muscle_volume() * 10.0 + 50.0
-        return mass / (height_m ** 2)
+        return mass / (height_m**2)

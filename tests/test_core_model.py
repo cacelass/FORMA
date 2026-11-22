@@ -41,7 +41,9 @@ def test_from_vector_dimension_mismatch() -> None:
 def test_total_muscle_volume() -> None:
     twin = DigitalTwin(
         person_id="p",
-        muscles={"a": Muscle(name="a", origin="", insertion="", volume=2.0),
-                 "b": Muscle(name="b", origin="", insertion="", volume=3.0)},
+        muscles={
+            "a": Muscle(name="a", origin="", insertion="", volume=2.0),
+            "b": Muscle(name="b", origin="", insertion="", volume=3.0),
+        },
     )
     assert twin.total_muscle_volume() == pytest.approx(5.0)
