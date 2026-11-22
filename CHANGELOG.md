@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Phase 0: Technical Research (PHASE-0)
+
+## [Unreleased] — 2026-11-22
+
+### Añadido
+
 - Qué se sabe ya y qué agentes hacen falta (ONBOARD-002)
 
 ## [Unreleased] — 2026-11-21

@@ -265,3 +265,19 @@ research find_papers arxiv success 10 refs; rag index_urls 4 URLs OK; rag search
 ```
 
 </details>
+
+## PHASE-0 — Phase 0: Technical Research
+
+- **Cerrada:** 2026-11-22
+- **Verificación:** ./init.sh en verde · 7 passed in 0.07s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — desbloquea PHASE-1..7.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+./init.sh ENTORNO LISTO; 3 docs creados; 7 passed
+```
+
+</details>
