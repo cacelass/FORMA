@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- ABM: cada musculo modelado individualmente (IMPROVE-008)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - Pulir musculos al maximo: modelo enriquecido (IMPROVE-007)
 
 ## [Unreleased] — 2026-11-26

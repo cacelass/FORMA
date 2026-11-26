@@ -40,6 +40,10 @@ class MuscleSpec:
     pennation_angle: float = 0.0
     fiber_type: str = "mixed"
     max_force: float = 0.0
+    innervation: str = ""
+    blood_supply: str = ""
+    fascicles: int = 1
+    optimal_length: float = 0.0
     agonists: list[str] = field(default_factory=list)
     antagonists: list[str] = field(default_factory=list)
 
@@ -55,6 +59,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         15.0,
         "mixed",
         40.0,
+        innervation="nervio axilar",
+        blood_supply="arteria circunfleja humeral posterior",
+        fascicles=7,
+        optimal_length=0.12,
         agonists=["supraespinoso"],
         antagonists=["dorsal_ancho"],
     ),
@@ -68,6 +76,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         0.0,
         "mixed",
         60.0,
+        innervation="nervios pectorales",
+        blood_supply="arteria torácica interna",
+        fascicles=1,
+        optimal_length=0.18,
         antagonists=["dorsal_ancho"],
     ),
     MuscleSpec(
@@ -80,6 +92,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         0.0,
         "fast",
         25.0,
+        innervation="nervio musculocutáneo",
+        blood_supply="arteria braquial",
+        fascicles=2,
+        optimal_length=0.12,
         antagonists=["triceps_braquial"],
     ),
     MuscleSpec(
@@ -92,6 +108,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         12.0,
         "fast",
         35.0,
+        innervation="nervio radial",
+        blood_supply="arteria braquial profunda",
+        fascicles=3,
+        optimal_length=0.14,
         antagonists=["biceps_braquial"],
     ),
     MuscleSpec(
@@ -104,6 +124,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         0.0,
         "slow",
         30.0,
+        innervation="nervios intercostales",
+        blood_supply="arteria epigástrica superior",
+        fascicles=4,
+        optimal_length=0.20,
         antagonists=["erector_espinal"],
     ),
     MuscleSpec(
@@ -116,6 +140,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         10.0,
         "mixed",
         80.0,
+        innervation="nervio femoral",
+        blood_supply="arteria femoral",
+        fascicles=4,
+        optimal_length=0.22,
         antagonists=["isquiotibiales"],
     ),
     MuscleSpec(
@@ -128,6 +156,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         15.0,
         "mixed",
         50.0,
+        innervation="nervio ciático",
+        blood_supply="arteria glútea inferior",
+        fascicles=3,
+        optimal_length=0.25,
         antagonists=["cuadriceps"],
     ),
     MuscleSpec(
@@ -140,6 +172,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         12.0,
         "mixed",
         30.0,
+        innervation="nervio tibial",
+        blood_supply="arteria poplítea",
+        fascicles=2,
+        optimal_length=0.12,
         antagonists=["tibial_anterior"],
     ),
     MuscleSpec(
@@ -152,6 +188,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         0.0,
         "slow",
         70.0,
+        innervation="nervio toracodorsal",
+        blood_supply="arteria toracodorsal",
+        fascicles=1,
+        optimal_length=0.30,
         antagonists=["pectoral_mayor"],
     ),
     MuscleSpec(
@@ -164,6 +204,10 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         0.0,
         "mixed",
         40.0,
+        innervation="nervio accesorio",
+        blood_supply="arteria cervical transversa",
+        fascicles=3,
+        optimal_length=0.15,
     ),
 ]
 
@@ -203,6 +247,10 @@ def build_twin(person_id: str = "default") -> DigitalTwin:
             origin_point=o_pt,
             insertion_point=i_pt,
             function=spec.function,
+            innervation=spec.innervation,
+            blood_supply=spec.blood_supply,
+            fascicles=spec.fascicles,
+            optimal_length=spec.optimal_length if spec.optimal_length > 0 else spec.volume,
         )
     return DigitalTwin(person_id=person_id, skeleton=sk, muscles=muscles)
 

@@ -617,3 +617,19 @@ tests/test_twin_manager.py 4 passed; make check verde
 ```
 
 </details>
+
+## IMPROVE-008 — ABM: cada musculo modelado individualmente
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 112 passed, 1 warning in 0.20s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — cada musculo es un agente individual del ABM.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+19 tests passed; make check verde; init.sh ENTORNO LISTO
+```
+
+</details>

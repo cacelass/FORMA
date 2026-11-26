@@ -576,6 +576,22 @@
       "started": "2026-11-26",
       "review_rounds": 0,
       "closed": "2026-11-26"
+    },
+    {
+      "id": "IMPROVE-008",
+      "title": "ABM: cada musculo modelado individualmente",
+      "description": "ABM: cada musculo modelado individualmente",
+      "acceptance_criteria": [
+        "cada musculo del catalogo tiene comportamiento individual",
+        "tests por musculo",
+        "activacion y fuerza por musculo",
+        "make check pasa"
+      ],
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-26",
+      "review_rounds": 0,
+      "closed": "2026-11-26"
     }
   ]
 }

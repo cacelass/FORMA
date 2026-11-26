@@ -47,6 +47,10 @@ class Muscle:
     origin_point: tuple[float, float, float] = (0.0, 0.0, 0.0)
     insertion_point: tuple[float, float, float] = (0.0, 0.0, 0.0)
     function: str = ""
+    innervation: str = ""  # nervio motor
+    blood_supply: str = ""  # arteria principal
+    fascicles: int = 1  # número de fascículos
+    optimal_length: float = 0.0  # longitud óptima (m)
 
     def __post_init__(self) -> None:
         if not self.name:
@@ -57,6 +61,10 @@ class Muscle:
             raise ValueError(f"ángulo de penación inválido: {self.pennation_angle}")
         if self.max_force < 0:
             raise ValueError(f"fuerza máxima negativa: {self.max_force}")
+        if self.fascicles < 1:
+            raise ValueError(f"fascicles inválido: {self.fascicles}")
+        if self.optimal_length < 0:
+            raise ValueError(f"longitud óptima negativa: {self.optimal_length}")
 
 
 @dataclass
