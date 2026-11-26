@@ -442,6 +442,24 @@
       "started": "2026-11-22",
       "review_rounds": 0,
       "closed": "2026-11-22"
+    },
+    {
+      "id": "HARNESS-SYNC-001",
+      "title": "Sincronizar arnes con MeshHarmes upstream",
+      "description": "Sincronizar arnes con MeshHarmes upstream",
+      "acceptance_criteria": [
+        "guardrail.py portado y en make check",
+        "init.sh soporta spec_ready",
+        "rag_agent y research_agent mejorados",
+        "cli None-safe",
+        "prompts_sync verde",
+        "make check pasa"
+      ],
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-26",
+      "review_rounds": 0,
+      "closed": "2026-11-26"
     }
   ]
 }

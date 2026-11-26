@@ -138,7 +138,7 @@ if [ -n "$PY" ] && [ -f "harness/featureslist.json" ]; then
 import json
 import sys
 
-VALID_STATUS = ("pending", "in_progress", "done", "blocked")
+VALID_STATUS = ("pending", "spec_ready", "in_progress", "done", "blocked")
 REQUIRED = ("id", "title", "description", "acceptance_criteria", "status")
 
 try:

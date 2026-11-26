@@ -7,8 +7,6 @@ fundiendo similitud vectorial con BM25 léxico. También indexa URLs externas.
 
 from __future__ import annotations
 
-from typing import Any
-
 from agents.core.base_agent import AgentResult, BaseAgent
 from agents.core.registry import register_agent
 from agents.tools.rag_tool import RagTool
@@ -68,12 +66,9 @@ class RagAgent(BaseAgent):
             data=result,
         )
 
-    def index_urls(self, *, urls: Any = None) -> AgentResult:
-        # La CLI no sabe pasar listas: permite str delimitado por espacios/comas.
+    def index_urls(self, *, urls: list[str] | str) -> AgentResult:
         if isinstance(urls, str):
-            urls = [u for u in urls.replace(',', ' ').split() if u]
-        if urls is None:
-            urls = []
+            urls = [u.strip() for u in urls.replace(",", " ").split() if u.strip()]
         if not RagTool.available():
             return AgentResult(
                 False, self.name, "index_urls",
@@ -101,7 +96,7 @@ class RagAgent(BaseAgent):
         return AgentResult(
             not errors or bool(indexed), self.name, "index_urls", msg,
             data={"indexed": indexed, "errors": errors},
-            warnings=[f"{e["url"]}: {e["error"]}" for e in errors] if errors else [],
+            warnings=[f"{e['url']}: {e['error']}" for e in errors] if errors else [],
         )
 
     def search(self, *, query: str, top_k: int = 10, hybrid: bool = True,

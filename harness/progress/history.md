@@ -393,3 +393,19 @@ tests: 563 passed 1 skipped; make check verde; init.sh ENTORNO LISTO
 ```
 
 </details>
+
+## HARNESS-SYNC-001 — Sincronizar arnes con MeshHarmes upstream
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 35 passed in 0.21s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — arnes sincronizado con upstream MeshHarmes.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+make check verde (guardrails OK); prompts_sync verde; init.sh ENTORNO LISTO
+```
+
+</details>

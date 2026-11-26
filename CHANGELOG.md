@@ -8,6 +8,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ---
 
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
+- Sincronizar arnes con MeshHarmes upstream (HARNESS-SYNC-001)
+
 ## [Unreleased] — 2026-11-22
 
 ### Añadido
