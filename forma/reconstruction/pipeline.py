@@ -98,13 +98,17 @@ class ReconstructionPipeline:
             self.twin.person_id, res.x, bone_names, muscle_names, adipose_regions
         )
         meta = {"views": len(views), "anthropometry": anthro, "iterations": res.iterations}
-        return ReconstructionResult(twin=new_twin, landmarks=Landmarks(points=combined), metadata=meta, loss=res.loss)
+        return ReconstructionResult(
+            twin=new_twin, landmarks=Landmarks(points=combined), metadata=meta, loss=res.loss
+        )
 
     def persist(self, result: ReconstructionResult, path: str) -> None:
         from forma.persistence.store import save_twin
+
         save_twin(result.twin, path)
         # metadata sidecar
         import json
         from pathlib import Path
+
         sidecar = Path(path).with_suffix(".meta.json")
         sidecar.write_text(json.dumps(result.metadata, indent=2), encoding="utf-8")

@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- MVP: personalized 3D digital twin from 3 photos (MVP-001)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - Optimization engine for reconstruction (OPT-001)
 
 ## [Unreleased] — 2026-11-26

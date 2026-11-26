@@ -31,4 +31,8 @@ class BlenderBridge:
         return self.provider.reload(path)
 
     def describe(self) -> dict[str, str]:
-        return {"bridge": "blender", "provider": self.provider.name, "mode": "mock" if self.provider.name == "base" else "live"}
+        return {
+            "bridge": "blender",
+            "provider": self.provider.name,
+            "mode": "mock" if self.provider.name == "base" else "live",
+        }

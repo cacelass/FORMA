@@ -4,8 +4,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 from forma.blender_bridge import BlenderBridge
 from forma.providers.base_body_provider import BaseBodyProvider
 

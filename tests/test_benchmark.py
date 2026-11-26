@@ -9,7 +9,7 @@ from forma.optimization.benchmark import benchmark
 
 def test_benchmark() -> None:
     def f(x: np.ndarray) -> float:
-        return float(np.sum(x ** 2))
+        return float(np.sum(x**2))
 
     def g(x: np.ndarray) -> np.ndarray:
         return 2 * x

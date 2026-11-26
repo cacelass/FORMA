@@ -585,3 +585,19 @@ tests optimization passed; make check verde
 ```
 
 </details>
+
+## MVP-001 — MVP: personalized 3D digital twin from 3 photos
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 101 passed, 1 warning in 0.24s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — MVP gemelo digital funcional.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests/test_twin_manager.py 4 passed; make check verde
+```
+
+</details>
