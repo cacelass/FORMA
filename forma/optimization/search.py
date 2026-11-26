@@ -26,7 +26,8 @@ def multi_start(
         res = adam(f, cand, **kwargs)
         if best is None or res.loss < best.loss:
             best = res
-    assert best is not None
+    if best is None:
+        raise RuntimeError("multi_start no produjo resultado")
     return best
 
 
@@ -46,7 +47,8 @@ def grid_search(
         if v < best_val:
             best_val = v
             best_x = x
-    assert best_x is not None
+    if best_x is None:
+        raise RuntimeError("grid_search no produjo resultado")
     return OptimizationResult(
         x=best_x, loss=best_val, iterations=steps ** len(bounds), converged=True, history=[best_val]
     )

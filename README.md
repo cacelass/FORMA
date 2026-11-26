@@ -4,6 +4,8 @@
 ![Version](https://img.shields.io/badge/Version-0.1.13-green)
 ![Author](https://img.shields.io/badge/Author-cacelass-blueviolet)
 
+**Versión:** 0.1.13
+
 > Parametric Human Digital Twin Platform.
 
 FORMA es una plataforma modular para reconstruir, representar,
