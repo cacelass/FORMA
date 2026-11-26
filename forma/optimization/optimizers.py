@@ -12,7 +12,11 @@ from forma.optimization.engine import OptimizationResult
 def finite_difference_grad(
     f: Callable[[np.ndarray], float], x: np.ndarray, eps: float = 1e-5
 ) -> np.ndarray:
-    x = np.asarray(x, dtype=float)
+    if eps <= 0:
+        raise ValueError("eps debe ser > 0")
+    x = np.atleast_1d(np.asarray(x, dtype=float))
+    if x.ndim != 1:
+        raise ValueError("x debe ser 1-D")
     g = np.zeros_like(x)
     for i in range(x.size):
         xp = x.copy()
@@ -34,7 +38,17 @@ def adam(
     tol: float = 1e-8,
     grad: Callable[[np.ndarray], np.ndarray] | None = None,
 ) -> OptimizationResult:
-    x = np.asarray(x0, dtype=float).copy()
+    if lr <= 0:
+        raise ValueError("lr debe ser > 0")
+    if not (0 <= beta1 < 1):
+        raise ValueError("beta1 debe estar en [0,1)")
+    if not (0 <= beta2 < 1):
+        raise ValueError("beta2 debe estar en [0,1)")
+    if eps <= 0:
+        raise ValueError("eps debe ser > 0")
+    if max_iter < 1:
+        raise ValueError("max_iter debe ser >= 1")
+    x = np.atleast_1d(np.asarray(x0, dtype=float)).copy()
     m = np.zeros_like(x)
     v = np.zeros_like(x)
     history: list[float] = []
@@ -66,7 +80,15 @@ def rmsprop(
     tol: float = 1e-8,
     grad: Callable[[np.ndarray], np.ndarray] | None = None,
 ) -> OptimizationResult:
-    x = np.asarray(x0, dtype=float).copy()
+    if lr <= 0:
+        raise ValueError("lr debe ser > 0")
+    if not (0 <= rho < 1):
+        raise ValueError("rho debe estar en [0,1)")
+    if eps <= 0:
+        raise ValueError("eps debe ser > 0")
+    if max_iter < 1:
+        raise ValueError("max_iter debe ser >= 1")
+    x = np.atleast_1d(np.asarray(x0, dtype=float)).copy()
     v = np.zeros_like(x)
     history: list[float] = []
     converged = False
@@ -93,7 +115,11 @@ def sgd_momentum(
     tol: float = 1e-8,
     grad: Callable[[np.ndarray], np.ndarray] | None = None,
 ) -> OptimizationResult:
-    x = np.asarray(x0, dtype=float).copy()
+    if lr <= 0:
+        raise ValueError("lr debe ser > 0")
+    if max_iter < 1:
+        raise ValueError("max_iter debe ser >= 1")
+    x = np.atleast_1d(np.asarray(x0, dtype=float)).copy()
     velocity = np.zeros_like(x)
     history: list[float] = []
     converged = False

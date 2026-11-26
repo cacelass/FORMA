@@ -5,7 +5,8 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from forma.optimization.losses import huber, mae, mse
+from forma.optimization.engine import gradient_descent, nelder_mead
+from forma.optimization.losses import cosine_distance, huber, mae, mse
 from forma.optimization.metrics import mape, r2, rmse
 from forma.optimization.optimizers import adam, finite_difference_grad, rmsprop, sgd_momentum
 from forma.optimization.search import grid_search, multi_start
@@ -107,3 +108,72 @@ def test_cosine_distance_cero() -> None:
     from forma.optimization.losses import cosine_distance
 
     assert cosine_distance(np.array([0.0, 0.0]), np.array([1.0, 0.0])) == 1.0
+
+
+def test_metrics_validan_forma() -> None:
+    a = np.array([1.0])
+    b = np.array([1.0, 2.0])
+    with pytest.raises(ValueError):
+        rmse(a, b)
+    with pytest.raises(ValueError):
+        r2(a, b)
+    with pytest.raises(ValueError):
+        mape(a, b)
+    with pytest.raises(ValueError):
+        mae(a, b)
+
+
+def test_losses_validaciones() -> None:
+    with pytest.raises(ValueError):
+        huber(np.array([1.0]), np.array([1.0]), delta=-1.0)
+    with pytest.raises(ValueError):
+        cosine_distance(np.array([1.0]), np.array([1.0, 2.0]))
+
+
+def test_optimizers_validaciones() -> None:
+    with pytest.raises(ValueError):
+        finite_difference_grad(lambda x: float(x[0]), np.array([1.0]), eps=0.0)
+    with pytest.raises(ValueError):
+        adam(lambda x: float(np.sum(x**2)), np.array([1.0]), beta1=1.0)
+    with pytest.raises(ValueError):
+        rmsprop(lambda x: float(np.sum(x**2)), np.array([1.0]), rho=1.0)
+    with pytest.raises(ValueError):
+        adam(lambda x: float(np.sum(x**2)), np.array([1.0]), max_iter=0)
+    with pytest.raises(ValueError):
+        gradient_descent(lambda x: float(np.sum(x**2)), lambda x: 2 * x, np.array([1.0]), lr=0.0)
+    with pytest.raises(ValueError):
+        nelder_mead(lambda x: float(np.sum(x**2)), np.array([]))
+
+
+def test_uncertainty_validaciones() -> None:
+    with pytest.raises(ValueError):
+        bootstrap_ci(np.array([1.0]), n_boot=0)
+    with pytest.raises(ValueError):
+        bootstrap_ci(np.array([1.0]), ci=1.5)
+    with pytest.raises(ValueError):
+        prediction_interval(np.array([0.0]), -1.0)
+
+
+def test_search_validaciones() -> None:
+    with pytest.raises(ValueError):
+        grid_search(lambda x: float(np.sum(x**2)), [])
+    with pytest.raises(ValueError):
+        multi_start(lambda x: float(np.sum(x**2)), np.array([1.0]), n_restarts=0)
+
+
+def test_r2_constante() -> None:
+    p = np.array([1.0, 1.0])
+    t = np.array([2.0, 2.0])
+    assert r2(p, t) == 0.0
+
+
+def test_shrink_helper() -> None:
+    import numpy as np
+
+    from forma.optimization.engine import _shrink
+
+    simplex = [np.array([0.0, 0.0]), np.array([1.0, 0.0]), np.array([0.0, 1.0])]
+    fvals = [0.0, 1.0, 1.0]
+    new_s, new_f = _shrink(simplex, fvals, 0, 0.5, lambda x: float(np.sum(x**2)))
+    assert len(new_s) == 3
+    assert new_f[0] == 0.0

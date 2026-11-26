@@ -457,3 +457,19 @@ make check verde; init.sh ENTORNO LISTO
 ```
 
 </details>
+
+## IMPROVE-005 — Validaciones y robustez del motor ML
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 63 passed, 1 warning in 0.24s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — motor ML robusto y validado.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+588 passed 15 skipped; make check verde; init.sh ENTORNO LISTO
+```
+
+</details>

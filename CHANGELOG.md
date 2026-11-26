@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Validaciones y robustez del motor ML (IMPROVE-005)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - Agentes de dominio scaffold + cobertura (IMPROVE-004)
 
 ## [Unreleased] — 2026-11-26

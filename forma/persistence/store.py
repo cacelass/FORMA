@@ -37,17 +37,33 @@ def _to_dict(twin: DigitalTwin) -> dict[str, Any]:
     }
 
 
-def save_twin(twin: DigitalTwin, path: Path) -> None:
+def save_twin(twin: DigitalTwin, path: str | Path) -> None:
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(_to_dict(twin), indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def load_twin(path: Path) -> DigitalTwin:
+def load_twin(path: str | Path) -> DigitalTwin:
     data = json.loads(Path(path).read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError("JSON inválido: se esperaba un objeto")
+    if not isinstance(data.get("person_id"), str) or not data["person_id"]:
+        raise ValueError("person_id debe ser string no vacío")
+    sk_data = data.get("skeleton")
+    if not isinstance(sk_data, dict):
+        raise ValueError("skeleton inválido")
+    joints_raw = sk_data.get("joints", {})
+    if not isinstance(joints_raw, dict):
+        raise ValueError("joints inválido")
+    for k, v in joints_raw.items():
+        if not (isinstance(v, (list, tuple)) and len(v) == 3):
+            raise ValueError(f"joint '{k}' debe tener 3 coordenadas")
+    meta = data.get("metadata", {})
+    if not isinstance(meta, dict):
+        raise ValueError("metadata inválido")
     sk = Skeleton(
-        bone_lengths=data["skeleton"]["bone_lengths"],
-        joints={k: tuple(v) for k, v in data["skeleton"]["joints"].items()},
+        bone_lengths=sk_data.get("bone_lengths", {}),
+        joints={k: tuple(v) for k, v in joints_raw.items()},
     )
     muscles = {k: Muscle(**v) for k, v in data["muscles"].items()}
     adipose = AdiposeLayer(regions=data["adipose"]["regions"])

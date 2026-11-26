@@ -63,3 +63,44 @@ def test_muscle_names() -> None:
 def test_adipose_valida_negativo() -> None:
     with __import__("pytest").raises(ValueError):
         AdiposeLayer(regions={"x": -1.0})
+
+
+def test_skin_vertex_count_negativo() -> None:
+    import pytest
+
+    from forma.core.model import Skin
+
+    with pytest.raises(ValueError):
+        Skin(vertex_count=-1)
+
+
+def test_skeleton_joint_longitud() -> None:
+    from typing import Any
+
+    import pytest
+
+    bad: Any = {"a": (1.0, 2.0)}
+    with pytest.raises(ValueError):
+        Skeleton(joints=bad)
+
+
+def test_digital_twin_person_id_vacio() -> None:
+    import pytest
+
+    with pytest.raises(ValueError):
+        DigitalTwin(person_id="")
+
+
+def test_muscle_name_vacio() -> None:
+    import pytest
+
+    with pytest.raises(ValueError):
+        Muscle(name="", origin="", insertion="")
+
+
+def test_from_vector_duplicados() -> None:
+    import numpy as np
+    import pytest
+
+    with pytest.raises(ValueError):
+        DigitalTwin.from_vector("p", np.array([1.0, 2.0, 3.0]), ["a", "a"], ["m"], ["r"])

@@ -510,6 +510,24 @@
       "started": "2026-11-26",
       "review_rounds": 0,
       "closed": "2026-11-26"
+    },
+    {
+      "id": "IMPROVE-005",
+      "title": "Validaciones y robustez del motor ML",
+      "description": "Validaciones y robustez del motor ML",
+      "acceptance_criteria": [
+        "validaciones de forma y parametros",
+        "store valida tipos",
+        "fitness NaN",
+        "core model validaciones",
+        "tests nuevos",
+        "make check pasa"
+      ],
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-26",
+      "review_rounds": 0,
+      "closed": "2026-11-26"
     }
   ]
 }

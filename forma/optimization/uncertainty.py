@@ -12,6 +12,10 @@ def bootstrap_ci(
     seed: int = 0,
 ) -> tuple[float, float, float]:
     """Devuelve (media, lower, upper) del bootstrap de los residuos."""
+    if n_boot < 1:
+        raise ValueError("n_boot debe ser >= 1")
+    if not (0 < ci < 1):
+        raise ValueError("ci debe estar en (0,1)")
     r = np.asarray(residuals, dtype=float).ravel()
     if r.size == 0:
         return 0.0, 0.0, 0.0
@@ -28,5 +32,7 @@ def bootstrap_ci(
 def prediction_interval(
     pred: np.ndarray, std: float, z: float = 1.96
 ) -> tuple[np.ndarray, np.ndarray]:
+    if std < 0:
+        raise ValueError("std debe ser >= 0")
     pred = np.asarray(pred, dtype=float)
     return pred - z * std, pred + z * std

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import Any
 
 import numpy as np
 
@@ -35,7 +36,11 @@ def gradient_descent(
     max_iter: int = 1000,
     tol: float = 1e-8,
 ) -> OptimizationResult:
-    x = np.asarray(x0, dtype=float).copy()
+    if lr <= 0:
+        raise ValueError("lr debe ser > 0")
+    if max_iter < 1:
+        raise ValueError("max_iter debe ser >= 1")
+    x = np.atleast_1d(np.asarray(x0, dtype=float)).copy()
     history: list[float] = []
     converged = False
     for i in range(max_iter):
@@ -51,6 +56,20 @@ def gradient_descent(
     )
 
 
+def _shrink(
+    simplex: list, fvals: list, best: int, sigma: float, f: Callable[[Any], float]
+) -> tuple[list, list]:
+    """Contrae el simplex hacia el mejor punto (rama de shrink)."""
+    new_simplex = [p for p in simplex]
+    new_fvals = list(fvals)
+    for i in range(len(simplex)):
+        if i == best:
+            continue
+        new_simplex[i] = simplex[best] + sigma * (simplex[i] - simplex[best])
+        new_fvals[i] = f(new_simplex[i])
+    return new_simplex, new_fvals
+
+
 def nelder_mead(
     f: Callable[[np.ndarray], float],
     x0: np.ndarray,
@@ -61,8 +80,13 @@ def nelder_mead(
     sigma: float = 0.5,
     tol: float = 1e-8,
 ) -> OptimizationResult:
+    x0 = np.atleast_1d(np.asarray(x0, dtype=float))
+    if x0.size == 0:
+        raise ValueError("x0 no puede estar vacío")
+    if max_iter < 1:
+        raise ValueError("max_iter debe ser >= 1")
     n = len(x0)
-    simplex = [np.asarray(x0, dtype=float).copy()]
+    simplex = [x0.copy()]
     for i in range(n):
         y = x0.copy()
         y[i] = y[i] * 1.05 if y[i] != 0 else 0.01
@@ -97,11 +121,7 @@ def nelder_mead(
                 simplex[worst] = xc
                 fvals[worst] = fc
             else:
-                for i in range(len(simplex)):
-                    if i == best:
-                        continue
-                    simplex[i] = simplex[best] + sigma * (simplex[i] - simplex[best])
-                    fvals[i] = f(simplex[i])
+                simplex, fvals = _shrink(simplex, fvals, best, sigma, f)
         history.append(min(fvals))
         spread = max(fvals) - min(fvals)
         if spread < tol:

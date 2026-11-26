@@ -13,7 +13,9 @@ class FitnessModule:
         return self.twin.total_muscle_volume()
 
     def bmi_estimate(self, height_m: float) -> float:
-        if height_m <= 0:
+        import math
+
+        if not math.isfinite(height_m) or height_m <= 0:
             raise ValueError("altura inválida")
         mass = self.twin.total_muscle_volume() * 10.0 + 50.0
         return mass / (height_m**2)

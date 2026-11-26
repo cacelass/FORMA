@@ -19,6 +19,10 @@ def multi_start(
     seed: int = 0,
     **kwargs: Any,
 ) -> OptimizationResult:
+    if n_restarts < 1:
+        raise ValueError("n_restarts debe ser >= 1")
+    if noise < 0:
+        raise ValueError("noise debe ser >= 0")
     rng = np.random.default_rng(seed)
     best: OptimizationResult | None = None
     for _ in range(n_restarts):
@@ -36,6 +40,10 @@ def grid_search(
     bounds: list[tuple[float, float]],
     steps: int = 10,
 ) -> OptimizationResult:
+    if not bounds:
+        raise ValueError("bounds no puede estar vacío")
+    if steps < 2:
+        raise ValueError("steps debe ser >= 2")
     from itertools import product
 
     axes = [np.linspace(lo, hi, steps) for lo, hi in bounds]

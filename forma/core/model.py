@@ -22,6 +22,9 @@ class Skeleton:
         for name, length in self.bone_lengths.items():
             if length < 0:
                 raise ValueError(f"longitud ósea negativa: {name}={length}")
+        for name, joint in self.joints.items():
+            if len(joint) != 3:
+                raise ValueError(f"joint '{name}' debe tener 3 coordenadas")
 
     def total_height(self) -> float:
         return float(sum(self.bone_lengths.values()))
@@ -39,6 +42,8 @@ class Muscle:
     thickness: float = 0.0
 
     def __post_init__(self) -> None:
+        if not self.name:
+            raise ValueError("el músculo debe tener nombre")
         if self.volume < 0 or self.length < 0 or self.thickness < 0:
             raise ValueError(f"parámetros negativos en músculo {self.name}")
 
@@ -63,6 +68,10 @@ class Skin:
     uv: bool = False
     material: str = "skin_default"
 
+    def __post_init__(self) -> None:
+        if self.vertex_count < 0:
+            raise ValueError("vertex_count no puede ser negativo")
+
 
 @dataclass
 class DigitalTwin:
@@ -70,6 +79,11 @@ class DigitalTwin:
 
     person_id: str
     skeleton: Skeleton = field(default_factory=Skeleton)
+
+    def __post_init__(self) -> None:
+        if not self.person_id:
+            raise ValueError("person_id no puede estar vacío")
+
     muscles: dict[str, Muscle] = field(default_factory=dict)
     adipose: AdiposeLayer = field(default_factory=AdiposeLayer)
     skin: Skin = field(default_factory=Skin)
@@ -100,6 +114,12 @@ class DigitalTwin:
         n_b = len(bone_names)
         n_m = len(muscle_names)
         n_a = len(adipose_regions)
+        if len(set(bone_names)) != len(bone_names):
+            raise ValueError("bone_names duplicados")
+        if len(set(muscle_names)) != len(muscle_names):
+            raise ValueError("muscle_names duplicados")
+        if len(set(adipose_regions)) != len(adipose_regions):
+            raise ValueError("adipose_regions duplicados")
         if vec.shape[0] != n_b + n_m + n_a:
             raise ValueError("dimensión del vector no coincide con el modelo")
         sk = Skeleton(bone_lengths={bone_names[i]: float(vec[i]) for i in range(n_b)})

@@ -48,3 +48,12 @@ def test_fitness_bmi_valido() -> None:
 
 def test_body_art_canvas() -> None:
     assert BodyArtModule(_twin()).canvas_area() == 1000
+
+
+def test_fitness_bmi_nan() -> None:
+    import pytest
+
+    with pytest.raises(ValueError):
+        FitnessModule(_twin()).bmi_estimate(float("nan"))
+    with pytest.raises(ValueError):
+        FitnessModule(_twin()).bmi_estimate(float("inf"))
