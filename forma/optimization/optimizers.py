@@ -3,18 +3,10 @@
 from __future__ import annotations
 
 from collections.abc import Callable
-from dataclasses import dataclass
 
 import numpy as np
 
 from forma.optimization.engine import OptimizationResult
-
-
-@dataclass
-class OptimizerState:
-    m: np.ndarray
-    v: np.ndarray
-    t: int = 0
 
 
 def finite_difference_grad(

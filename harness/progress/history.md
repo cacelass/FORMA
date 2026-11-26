@@ -425,3 +425,19 @@ make check verde; init.sh ENTORNO LISTO
 ```
 
 </details>
+
+## IMPROVE-003 — Limpieza: codigo muerto y tests faltantes
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 42 passed in 0.23s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — codigo limpio y tests completos.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+570 passed 1 skipped; make check verde; init.sh ENTORNO LISTO
+```
+
+</details>

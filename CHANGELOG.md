@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Limpieza: codigo muerto y tests faltantes (IMPROVE-003)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - Alinear documentacion con estado real (IMPROVE-002)
 
 ## [Unreleased] — 2026-11-26

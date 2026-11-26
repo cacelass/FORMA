@@ -84,7 +84,7 @@ class DigitalTwin:
     def to_vector(self) -> np.ndarray:
         """Vector numérico para optimización: longitudes óseas + volúmenes musculares."""
         parts: list[float] = list(self.skeleton.bone_lengths.values())
-        parts += [m.volume for m in self.muscles.values()]
+        parts += [self.muscles[name].volume for name in sorted(self.muscles)]
         parts += list(self.adipose.regions.values())
         return np.asarray(parts, dtype=float)
 

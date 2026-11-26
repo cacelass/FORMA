@@ -5,8 +5,8 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from forma.optimization.losses import huber, mse
-from forma.optimization.metrics import mae, r2, rmse
+from forma.optimization.losses import huber, mae, mse
+from forma.optimization.metrics import mape, r2, rmse
 from forma.optimization.optimizers import adam, finite_difference_grad, rmsprop, sgd_momentum
 from forma.optimization.search import grid_search, multi_start
 from forma.optimization.uncertainty import bootstrap_ci, prediction_interval
@@ -71,3 +71,22 @@ def test_prediction_interval() -> None:
     pred = np.array([0.0, 1.0])
     lo, hi = prediction_interval(pred, 1.0)
     assert (hi > lo).all()
+
+
+def test_mape() -> None:
+    p = np.array([1.0, 2.0, 3.0])
+    t = np.array([1.0, 2.0, 3.0])
+    assert mape(p, t) == pytest.approx(0.0)
+
+
+def test_cosine_distance() -> None:
+    from forma.optimization.losses import cosine_distance
+
+    a = np.array([1.0, 0.0])
+    assert cosine_distance(a, a) == pytest.approx(0.0)
+
+
+def test_bootstrap_ci_empty() -> None:
+    from forma.optimization.uncertainty import bootstrap_ci
+
+    assert bootstrap_ci(np.array([])) == (0.0, 0.0, 0.0)

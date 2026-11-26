@@ -34,5 +34,17 @@ def test_fashion_size() -> None:
     assert FashionModule(_twin()).size_bucket() in {"S", "M", "L"}
 
 
+def test_fashion_branches() -> None:
+    from forma.core.model import DigitalTwin, Skeleton
+
+    for h, expected in ((1.5, "S"), (1.7, "M"), (1.8, "L")):
+        t = DigitalTwin(person_id="p", skeleton=Skeleton(bone_lengths={"leg": h}))
+        assert FashionModule(t).size_bucket() == expected
+
+
+def test_fitness_bmi_valido() -> None:
+    assert FitnessModule(_twin()).bmi_estimate(1.7) > 0
+
+
 def test_body_art_canvas() -> None:
     assert BodyArtModule(_twin()).canvas_area() == 1000

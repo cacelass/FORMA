@@ -47,3 +47,19 @@ def test_total_muscle_volume() -> None:
         },
     )
     assert twin.total_muscle_volume() == pytest.approx(5.0)
+
+
+def test_muscle_names() -> None:
+    twin = DigitalTwin(
+        person_id="p",
+        muscles={
+            "b": Muscle(name="b", origin="", insertion="", volume=1.0),
+            "a": Muscle(name="a", origin="", insertion="", volume=2.0),
+        },
+    )
+    assert twin.muscle_names() == ["a", "b"]
+
+
+def test_adipose_valida_negativo() -> None:
+    with __import__("pytest").raises(ValueError):
+        AdiposeLayer(regions={"x": -1.0})

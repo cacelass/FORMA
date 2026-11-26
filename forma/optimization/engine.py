@@ -7,6 +7,8 @@ from dataclasses import dataclass
 
 import numpy as np
 
+from forma.optimization.metrics import rmse as _rmse
+
 
 @dataclass
 class OptimizationResult:
@@ -18,9 +20,11 @@ class OptimizationResult:
 
 
 def l2_loss(pred: np.ndarray, target: np.ndarray) -> float:
+    pred = np.asarray(pred, dtype=float)
+    target = np.asarray(target, dtype=float)
     if pred.shape != target.shape:
         raise ValueError("formas distintas")
-    return float(np.sqrt(np.mean((pred - target) ** 2)))
+    return _rmse(pred, target)
 
 
 def gradient_descent(

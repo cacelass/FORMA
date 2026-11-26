@@ -477,6 +477,23 @@
       "started": "2026-11-26",
       "review_rounds": 0,
       "closed": "2026-11-26"
+    },
+    {
+      "id": "IMPROVE-003",
+      "title": "Limpieza: codigo muerto y tests faltantes",
+      "description": "Limpieza: codigo muerto y tests faltantes",
+      "acceptance_criteria": [
+        "OptimizerState y standardize eliminados",
+        "mae y l2_loss consolidados",
+        "to_vector ordenado",
+        "tests nuevos en verde",
+        "make check pasa"
+      ],
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-26",
+      "review_rounds": 0,
+      "closed": "2026-11-26"
     }
   ]
 }
