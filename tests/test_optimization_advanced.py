@@ -90,3 +90,20 @@ def test_bootstrap_ci_empty() -> None:
     from forma.optimization.uncertainty import bootstrap_ci
 
     assert bootstrap_ci(np.array([])) == (0.0, 0.0, 0.0)
+
+
+def test_losses_formas_distintas() -> None:
+    a = np.array([1.0])
+    b = np.array([1.0, 2.0])
+    with pytest.raises(ValueError):
+        mse(a, b)
+    with pytest.raises(ValueError):
+        mae(a, b)
+    with pytest.raises(ValueError):
+        huber(a, b)
+
+
+def test_cosine_distance_cero() -> None:
+    from forma.optimization.losses import cosine_distance
+
+    assert cosine_distance(np.array([0.0, 0.0]), np.array([1.0, 0.0])) == 1.0

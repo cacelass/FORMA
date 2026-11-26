@@ -441,3 +441,19 @@ make check verde; init.sh ENTORNO LISTO
 ```
 
 </details>
+
+## IMPROVE-004 — Agentes de dominio scaffold + cobertura 100%
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 45 passed, 1 warning in 0.22s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — agentes de dominio y cobertura al maximo.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+572 passed 15 skipped; make check verde; init.sh ENTORNO LISTO
+```
+
+</details>

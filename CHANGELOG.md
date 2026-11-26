@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Agentes de dominio scaffold + cobertura (IMPROVE-004)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - Limpieza: codigo muerto y tests faltantes (IMPROVE-003)
 
 ## [Unreleased] — 2026-11-26

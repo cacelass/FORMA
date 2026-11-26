@@ -494,6 +494,22 @@
       "started": "2026-11-26",
       "review_rounds": 0,
       "closed": "2026-11-26"
+    },
+    {
+      "id": "IMPROVE-004",
+      "title": "Agentes de dominio scaffold + cobertura 100%",
+      "description": "Agentes de dominio scaffold + cobertura 100%",
+      "acceptance_criteria": [
+        "agentes reconstruction y body_provider scaffolded",
+        "tests cobertura mejorada",
+        "__main__ cubierto",
+        "make check pasa"
+      ],
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-26",
+      "review_rounds": 0,
+      "closed": "2026-11-26"
     }
   ]
 }

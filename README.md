@@ -1,10 +1,10 @@
 # FORMA
 
 ![Python](https://img.shields.io/badge/Python-3.12+-blue?logo=python&logoColor=white)
-![Version](https://img.shields.io/badge/Version-0.1.15-green)
+![Version](https://img.shields.io/badge/Version-0.1.16-green)
 ![Author](https://img.shields.io/badge/Author-cacelass-blueviolet)
 
-**Versión:** 0.1.15
+**Versión:** 0.1.16
 
 > Parametric Human Digital Twin Platform.
 
