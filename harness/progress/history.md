@@ -505,3 +505,19 @@ tests/test_interaction.py 3 passed; make check verde
 ```
 
 </details>
+
+## PHASE-7 — Phase 7: Platform Interface
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 74 passed, 1 warning in 0.17s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — interfaz de plataforma pura Python.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests/test_platform.py 4 passed; make check verde
+```
+
+</details>
