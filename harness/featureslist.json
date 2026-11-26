@@ -534,6 +534,24 @@
       "started": "2026-11-26",
       "review_rounds": 0,
       "closed": "2026-11-26"
+    },
+    {
+      "id": "IMPROVE-006",
+      "title": "Modelado anatomico individual: musculos y ABM",
+      "description": "Modelado anatomico individual: musculos y ABM",
+      "acceptance_criteria": [
+        "catalogo de 10 musculos con origen/insercion",
+        "build_twin",
+        "muscle_behavior Hill",
+        "ABM engine",
+        "tests en verde",
+        "make check pasa"
+      ],
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-26",
+      "review_rounds": 0,
+      "closed": "2026-11-26"
     }
   ]
 }

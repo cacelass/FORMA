@@ -16,4 +16,4 @@ def attach_to_surface(point: np.ndarray, surface_points: np.ndarray) -> np.ndarr
         raise ValueError("surface vacía")
     dists = np.linalg.norm(surface_points - point, axis=1)
     idx = int(np.argmin(dists))
-    return surface_points[idx]
+    return np.asarray(surface_points[idx], dtype=float)

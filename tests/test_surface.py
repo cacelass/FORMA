@@ -39,4 +39,4 @@ def test_material() -> None:
     with pytest.raises(ValueError):
         SkinMaterial(roughness=2.0)
     with pytest.raises(ValueError):
-        SkinMaterial(color=(1.0, 0.0))
+        SkinMaterial(color=(1.0, 0.0))  # type: ignore[arg-type]

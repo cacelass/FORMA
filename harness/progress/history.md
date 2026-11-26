@@ -521,3 +521,19 @@ tests/test_platform.py 4 passed; make check verde
 ```
 
 </details>
+
+## IMPROVE-006 — Modelado anatomico individual: musculos y ABM
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 86 passed, 1 warning in 0.16s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — modelado anatomico individual y ABM.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests: 12 passed; make check verde; init.sh ENTORNO LISTO
+```
+
+</details>

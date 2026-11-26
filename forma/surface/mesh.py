@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import List
 
 import numpy as np
 
@@ -35,4 +34,8 @@ class SurfaceMesh:
         a = self.vertices[self.faces[:, 0]]
         b = self.vertices[self.faces[:, 1]]
         c = self.vertices[self.faces[:, 2]]
-        return float(0.5 * np.sum(np.linalg.cross(b - a, c - a), axis=1).__abs__().sum()) if False else float(0.5 * np.sum(np.abs(np.cross(b - a, c - a)), axis=1).sum())
+        return (
+            float(0.5 * np.sum(np.linalg.cross(b - a, c - a), axis=1).__abs__().sum())
+            if False
+            else float(0.5 * np.sum(np.abs(np.cross(b - a, c - a)), axis=1).sum())
+        )
