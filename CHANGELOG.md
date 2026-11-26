@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Phase 5: General Interaction Engine (PHASE-5)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - Phase 4: Surface and Skin (PHASE-4)
 
 ## [Unreleased] — 2026-11-26

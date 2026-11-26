@@ -489,3 +489,19 @@ tests/test_surface.py 4 passed; make check verde
 ```
 
 </details>
+
+## PHASE-5 — Phase 5: General Interaction Engine
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 70 passed, 1 warning in 0.20s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — interaccion pura Python.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests/test_interaction.py 3 passed; make check verde
+```
+
+</details>
