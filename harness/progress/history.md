@@ -569,3 +569,19 @@ tests/test_reconstruction.py 8 passed; make check verde
 ```
 
 </details>
+
+## OPT-001 — Optimization engine for reconstruction
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 97 passed, 1 warning in 0.22s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — motor de optimizacion y benchmark.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests optimization passed; make check verde
+```
+
+</details>

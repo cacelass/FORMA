@@ -12,6 +12,7 @@ from forma.optimization.losses import cosine_distance, huber, mae, mse
 from forma.optimization.metrics import mape, r2, rmse
 from forma.optimization.optimizers import adam, finite_difference_grad, rmsprop, sgd_momentum
 from forma.optimization.search import grid_search, multi_start
+from forma.optimization.benchmark import benchmark
 from forma.optimization.uncertainty import bootstrap_ci, prediction_interval
 
 __all__ = [
@@ -35,5 +36,6 @@ __all__ = [
     "multi_start",
     "grid_search",
     "bootstrap_ci",
+    "benchmark",
     "prediction_interval",
 ]

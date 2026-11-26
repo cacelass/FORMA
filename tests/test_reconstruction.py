@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pytest
 
@@ -57,7 +59,7 @@ def test_landmarks_validacion() -> None:
         Landmarks(points=np.array([1.0, 2.0]))
 
 
-def test_persist(tmp_path) -> None:
+def test_persist(tmp_path: "Path") -> None:
     p = ReconstructionPipeline()
     res = p.fit([np.zeros((10, 10))])
     out = tmp_path / "twin.json"

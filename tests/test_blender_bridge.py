@@ -13,16 +13,16 @@ from forma.providers.base_body_provider import BaseBodyProvider
 class Dummy(BaseBodyProvider):
     name = "dummy"
 
-    def load(self, path=None):
+    def load(self, path: object = None) -> str:
         return "loaded"
 
-    def render_views(self):
+    def render_views(self) -> dict[str, str]:
         return {"front": "x", "side": "y", "back": "z"}
 
-    def save(self, path):
+    def save(self, path: object) -> None:
         return None
 
-    def reload(self, path):
+    def reload(self, path: object) -> str:
         return "reloaded"
 
 
