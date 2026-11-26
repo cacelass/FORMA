@@ -473,3 +473,19 @@ make check verde; init.sh ENTORNO LISTO
 ```
 
 </details>
+
+## PHASE-4 — Phase 4: Surface and Skin
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 67 passed, 1 warning in 0.17s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — superficie y materiales puros Python.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests/test_surface.py 4 passed; make check verde
+```
+
+</details>

@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Phase 4: Surface and Skin (PHASE-4)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - Validaciones y robustez del motor ML (IMPROVE-005)
 
 ## [Unreleased] — 2026-11-26
