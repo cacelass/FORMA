@@ -1,4 +1,4 @@
-# Directorio de Agentes — MeshHarmes
+# Directorio de Agentes — FORMA (arnés MeshHarmes)
 
 > Punto de entrada para navegar las fichas de agentes del proyecto. Cada ficha
 > detalla rol, capacidades, límites y recursos, extraídos de

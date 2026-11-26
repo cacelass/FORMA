@@ -1,17 +1,22 @@
 # Arquitectura — FORMA
 
-## Piezas del sistema
+## Piezas del sistema (existentes)
 
 1. **Núcleo anatómico** (`forma/core/`): modelo paramétrico con capas independientes:
    - Esqueleto: proporciones óseas, articulaciones, restricciones, asimetrías.
    - Sistema muscular: músculos parametrizados (origen/inserción, volumen, longitud, grosor).
    - Tejido adiposo: grasa subcutánea regional, separando medido de estimado.
    - Piel y superficie: geometría externa, UV, materiales, SSS.
-2. **Pipeline de reconstrucción** (`forma/reconstruction/`): fotos → pose/landmarks → antropometría → fitting multivista → optimización → gemelo persistente.
-3. **Motor de interacción** (`forma/interaction/`): attachment a superficie, posicionamiento de objetos, colisión, tracking.
-4. **Persistencia y versionado** (`forma/persistence/`): gemelo digital por persona, configuraciones guardables/comparables, estimación de incertidumbre.
-5. **Módulos de aplicación** (`forma/modules/`): fitness, fashion, body art, ergonomía, etc. Consumen el núcleo, no lo modifican.
-6. **Interfaz de plataforma** (`forma/ui/`): viewport 3D, edición de parámetros, gestión de configuraciones, exportación.
+2. **Motor de optimización** (`forma/optimization/`): losses, optimizadores (GD, Adam, RMSprop, SGD), métricas, búsqueda multi-start/grid, incertidumbre (bootstrap).
+3. **Persistencia y versionado** (`forma/persistence/`): serialización JSON del gemelo.
+4. **Módulos de aplicación** (`forma/modules/`): fitness, fashion, body art.
+5. **Abstracción de proveedor base** (`forma/providers/`): `BaseBodyProvider`.
+
+## Piezas previstas (bloqueadas por infraestructura 3D)
+
+6. **Pipeline de reconstrucción** (`forma/reconstruction/`): fotos → pose/landmarks → antropometría → fitting multivista → optimización → gemelo persistente.
+7. **Motor de interacción** (`forma/interaction/`): attachment a superficie, posicionamiento de objetos, colisión, tracking.
+8. **Interfaz de plataforma** (`forma/ui/`): viewport 3D, edición de parámetros, gestión de configuraciones, exportación.
 
 ## Flujo
 
@@ -30,7 +35,7 @@ El núcleo anatómico no depende del motor de render ni de la interfaz.
 - Entorno y dependencias: uv (`uv.lock`).
 - Calidad: ruff, mypy, pytest, bandit, pip-audit.
 - Conocimiento: vault Obsidian + graphify + RAG local opcional (chromadb).
-- 3D (futuro): a decidir en BASE-001 (SMPL-X / MakeHuman / MB-Lab / Blender-native).
+- 3D: proveedor base elegido en BASE-001 (recomendación en proveedores-cuerpo-base.md); implementación en PHASE-1 (bloqueada).
 
 ## Alternativas consideradas y descartadas
 

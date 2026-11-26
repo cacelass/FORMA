@@ -9,13 +9,17 @@ See `vault/01_PROYECTO/arquitectura.md` for the full design. Summary:
 4. Skin and surface — external geometry, UV, materials, SSS.
 5. External objects — clothing, tattoos, accessories (independent of anatomy).
 
-## Components
-- Core anatomical model (`forma/core/`)
+## Components (existentes)
+- Core anatomical model (`forma/core/`) — Skeleton, Muscle, AdiposeLayer, Skin, DigitalTwin
+- Parametric optimization engine (`forma/optimization/`) — losses, optimizers, metrics, search, uncertainty
+- Persistence and versioning (`forma/persistence/`) — serialización JSON
+- Application modules (`forma/modules/`) — fitness, fashion, body_art
+- Base body provider abstraction (`forma/providers/`)
+
+## Components (previstos, bloqueados por infraestructura 3D)
 - Reconstruction pipeline (`forma/reconstruction/`)
 - Interaction engine (`forma/interaction/`)
-- Persistence and versioning (`forma/persistence/`)
-- Application modules (`forma/modules/`)
-- Platform interface (`forma/ui/`)
+- Platform interface / viewport 3D (`forma/ui/`)
 
 ## Key invariant
 The anatomical core does not depend on the render engine or the UI. It is consumable as a library/service.

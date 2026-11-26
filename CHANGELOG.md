@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Alinear documentacion con estado real (IMPROVE-002)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - Sincronizar arnes con MeshHarmes upstream (HARNESS-SYNC-001)
 
 ## [Unreleased] — 2026-11-22

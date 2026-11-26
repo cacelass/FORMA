@@ -1,10 +1,10 @@
 # FORMA
 
 ![Python](https://img.shields.io/badge/Python-3.12+-blue?logo=python&logoColor=white)
-![Version](https://img.shields.io/badge/Version-0.1.13-green)
+![Version](https://img.shields.io/badge/Version-0.1.14-green)
 ![Author](https://img.shields.io/badge/Author-cacelass-blueviolet)
 
-**Versión:** 0.1.13
+**Versión:** 0.1.14
 
 > Parametric Human Digital Twin Platform.
 
@@ -116,7 +116,7 @@ docs/                  ← Sphinx + PRD
 ```
 
 La especificación completa del proyecto está en
-`docs/spec/FORMA.md` (pendiente de crear) o en el documento original.
+`docs/spec/FORMA.md` (placeholder; se rellenará con el PRD completo).
 
 ---
 

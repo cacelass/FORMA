@@ -1,13 +1,13 @@
-# Índice para IA — MeshHarmes
+# Índice para IA — FORMA (arnés MeshHarmes)
 
 > Índice del vault. Punto de entrada para cualquier agente que necesite
 > contexto del proyecto antes de tocar nada.
 
 ## Metadata del proyecto
 
-- **Nombre:** MeshHarmes
-- **Paquete:** `app/` (declarado en `project.yml`)
-- **Versión:** 0.1.0
+- **Nombre:** FORMA (arnés MeshHarmes)
+- **Paquete:** `forma/` (declarado en `project.yml`)
+- **Versión:** 0.1.13
 - **Descripción:** Arnés de agentes e infraestructura de proyecto para trabajo general en Python.
 - **Autor:** cacelass
 

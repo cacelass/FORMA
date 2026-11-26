@@ -1,4 +1,4 @@
-# Sistema de Agentes — MeshHarmes
+# Sistema de Agentes — FORMA (arnés MeshHarmes)
 
 > Este proyecto usa un sistema multi-agente con contratos de rol explícitos.
 > Cada agente tiene un rol, capacidades, límites, recursos propios y colaboraciones definidas.
@@ -29,6 +29,7 @@ Humano
         ├── doctor (Diagnóstico integral)
         ├── memory (Memoria proactiva de trayectorias)
         ├── supervisor (Coordinación en competencia)
+        ├── mutation (Mutation testing y métrica CRAP)
         └── audit (Auditor del equipo)
 ```
 

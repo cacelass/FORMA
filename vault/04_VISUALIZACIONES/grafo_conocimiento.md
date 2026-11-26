@@ -1,4 +1,4 @@
-# Grafo de Conocimiento — MeshHarmes
+# Grafo de Conocimiento — FORMA (arnés MeshHarmes)
 
 > Lo genera el agente `knowledge` a partir de graphify. Los nodos se
 > representan como wikilinks de Obsidian, así que el grafo se navega desde
@@ -7,7 +7,7 @@
 ## Mapa del grafo
 
 ```
-(proyecto: MeshHarmes)
+(proyecto: FORMA (arnés MeshHarmes))
   ├── (rumbo) → [[01_PROYECTO/objetivo|Objetivo]] · [[01_PROYECTO/arquitectura|Arquitectura]]
   ├── (trabajo) → [[01_PROYECTO/roadmap|Roadmap]] · harness/featureslist.json
   ├── (agentes) → [[05_AGENTES/_index|Agentes]]

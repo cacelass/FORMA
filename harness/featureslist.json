@@ -460,6 +460,23 @@
       "started": "2026-11-26",
       "review_rounds": 0,
       "closed": "2026-11-26"
+    },
+    {
+      "id": "IMPROVE-002",
+      "title": "Alinear documentacion con estado real",
+      "description": "Alinear documentacion con estado real",
+      "acceptance_criteria": [
+        "versiones unificadas a 0.1.13",
+        "TD-004 actualizado",
+        "componentes existentes vs previstos",
+        "roadmap marcado",
+        "make check pasa"
+      ],
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-26",
+      "review_rounds": 0,
+      "closed": "2026-11-26"
     }
   ]
 }

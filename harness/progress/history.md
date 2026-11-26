@@ -409,3 +409,19 @@ make check verde (guardrails OK); prompts_sync verde; init.sh ENTORNO LISTO
 ```
 
 </details>
+
+## IMPROVE-002 — Alinear documentacion con estado real
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 35 passed in 0.15s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — documentacion alineada con el estado real.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+make check verde; init.sh ENTORNO LISTO
+```
+
+</details>
