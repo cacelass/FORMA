@@ -537,3 +537,35 @@ tests: 12 passed; make check verde; init.sh ENTORNO LISTO
 ```
 
 </details>
+
+## PHASE-1 — Phase 1: 3D Foundation
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 88 passed, 1 warning in 0.18s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — puente funcional sobre proveedor base; render real requiere Blender instalado.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests/test_blender_bridge.py 2 passed; make check verde
+```
+
+</details>
+
+## PHASE-3 — Phase 3: Photo Reconstruction
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 96 passed, 1 warning in 0.18s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — pipeline de reconstruccion puro Python.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+tests/test_reconstruction.py 8 passed; make check verde
+```
+
+</details>

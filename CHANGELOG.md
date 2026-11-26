@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Phase 3: Photo Reconstruction (PHASE-3)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - Modelado anatomico individual: musculos y ABM (IMPROVE-006)
 
 ## [Unreleased] — 2026-11-26
