@@ -12,6 +12,12 @@ añade aquí una entrada por cada feature cerrada del arnés.
 
 ### Añadido
 
+- Pulir musculos al maximo: modelo enriquecido (IMPROVE-007)
+
+## [Unreleased] — 2026-11-26
+
+### Añadido
+
 - MVP: personalized 3D digital twin from 3 photos (MVP-001)
 
 ## [Unreleased] — 2026-11-26

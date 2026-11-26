@@ -560,6 +560,22 @@
       "started": "2026-11-26",
       "review_rounds": 0,
       "closed": "2026-11-26"
+    },
+    {
+      "id": "IMPROVE-007",
+      "title": "Pulir musculos al maximo: modelo enriquecido",
+      "description": "Pulir musculos al maximo: modelo enriquecido",
+      "acceptance_criteria": [
+        "Muscle con shape/pennation/fiber_type/max_force/origin_point/insertion_point/function",
+        "catalogo 10 musculos detallado",
+        "tests en verde",
+        "make check pasa"
+      ],
+      "status": "done",
+      "depends_on": [],
+      "started": "2026-11-26",
+      "review_rounds": 0,
+      "closed": "2026-11-26"
     }
   ]
 }

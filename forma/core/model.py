@@ -32,7 +32,7 @@ class Skeleton:
 
 @dataclass
 class Muscle:
-    """Músculo parametrizado."""
+    """Músculo parametrizado (modelado individual al máximo)."""
 
     name: str
     origin: str
@@ -40,12 +40,23 @@ class Muscle:
     volume: float = 0.0
     length: float = 0.0
     thickness: float = 0.0
+    shape: str = "fusiforme"
+    pennation_angle: float = 0.0
+    fiber_type: str = "mixed"
+    max_force: float = 0.0
+    origin_point: tuple[float, float, float] = (0.0, 0.0, 0.0)
+    insertion_point: tuple[float, float, float] = (0.0, 0.0, 0.0)
+    function: str = ""
 
     def __post_init__(self) -> None:
         if not self.name:
             raise ValueError("el músculo debe tener nombre")
         if self.volume < 0 or self.length < 0 or self.thickness < 0:
             raise ValueError(f"parámetros negativos en músculo {self.name}")
+        if self.pennation_angle < 0 or self.pennation_angle > 90:
+            raise ValueError(f"ángulo de penación inválido: {self.pennation_angle}")
+        if self.max_force < 0:
+            raise ValueError(f"fuerza máxima negativa: {self.max_force}")
 
 
 @dataclass

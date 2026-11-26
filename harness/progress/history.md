@@ -601,3 +601,19 @@ tests/test_twin_manager.py 4 passed; make check verde
 ```
 
 </details>
+
+## IMPROVE-007 — Pulir musculos al maximo: modelo enriquecido
+
+- **Cerrada:** 2026-11-26
+- **Verificación:** ./init.sh en verde · 101 passed, 1 warning in 0.22s
+- **Cambios:** _(no indicados)_
+- **Decisiones:** Impacto: mejora — musculos modelados al maximo detalle.
+- **Pendiente:** _(nada)_
+
+<details><summary>Evidencia</summary>
+
+```
+641 passed 1 skipped; make check verde; init.sh ENTORNO LISTO
+```
+
+</details>

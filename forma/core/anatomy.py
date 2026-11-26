@@ -1,4 +1,4 @@
-"""Datos anatómicos: esqueleto y músculos con origen/inserción."""
+"""Datos anatómicos: esqueleto y músculos con origen/inserción (modelado individual)."""
 
 from __future__ import annotations
 
@@ -8,7 +8,6 @@ import numpy as np
 
 from forma.core.model import DigitalTwin, Muscle, Skeleton
 
-# Puntos de referencia óseos (coordenadas normalizadas, eje Y vertical)
 BONE_LANDMARKS: dict[str, tuple[float, float, float]] = {
     "skull": (0.0, 1.75, 0.0),
     "cervical": (0.0, 1.6, 0.0),
@@ -32,19 +31,19 @@ BONE_LANDMARKS: dict[str, tuple[float, float, float]] = {
 
 @dataclass
 class MuscleSpec:
-    """Especificación anatómica de un músculo."""
-
     name: str
-    origin: str  # landmark de origen
-    insertion: str  # landmark de inserción
-    function: str  # acción principal
+    origin: str
+    insertion: str
+    function: str
     volume: float = 1.0
-    fiber_direction: str = "longitudinal"  # longitudinal | pennate | bipennate
+    shape: str = "fusiforme"
+    pennation_angle: float = 0.0
+    fiber_type: str = "mixed"
+    max_force: float = 0.0
     agonists: list[str] = field(default_factory=list)
     antagonists: list[str] = field(default_factory=list)
 
 
-# Catálogo de músculos principales (origen/inserción por landmarks)
 MUSCLE_CATALOG: list[MuscleSpec] = [
     MuscleSpec(
         "deltoides",
@@ -53,6 +52,9 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         "abducción del hombro",
         0.4,
         "multipennate",
+        15.0,
+        "mixed",
+        40.0,
         agonists=["supraespinoso"],
         antagonists=["dorsal_ancho"],
     ),
@@ -63,6 +65,9 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         "aducción/flexión del hombro",
         0.6,
         "fan",
+        0.0,
+        "mixed",
+        60.0,
         antagonists=["dorsal_ancho"],
     ),
     MuscleSpec(
@@ -72,6 +77,9 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         "flexión del codo y supinación",
         0.25,
         "fusiforme",
+        0.0,
+        "fast",
+        25.0,
         antagonists=["triceps_braquial"],
     ),
     MuscleSpec(
@@ -81,6 +89,9 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         "extensión del codo",
         0.35,
         "pennate",
+        12.0,
+        "fast",
+        35.0,
         antagonists=["biceps_braquial"],
     ),
     MuscleSpec(
@@ -90,6 +101,9 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         "flexión del tronco",
         0.3,
         "strap",
+        0.0,
+        "slow",
+        30.0,
         antagonists=["erector_espinal"],
     ),
     MuscleSpec(
@@ -99,6 +113,9 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         "extensión de la rodilla",
         0.8,
         "pennate",
+        10.0,
+        "mixed",
+        80.0,
         antagonists=["isquiotibiales"],
     ),
     MuscleSpec(
@@ -108,6 +125,9 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         "flexión de la rodilla y extensión de cadera",
         0.5,
         "bipennate",
+        15.0,
+        "mixed",
+        50.0,
         antagonists=["cuadriceps"],
     ),
     MuscleSpec(
@@ -117,6 +137,9 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         "flexión plantar",
         0.3,
         "pennate",
+        12.0,
+        "mixed",
+        30.0,
         antagonists=["tibial_anterior"],
     ),
     MuscleSpec(
@@ -126,10 +149,21 @@ MUSCLE_CATALOG: list[MuscleSpec] = [
         "extensión/aducción del hombro",
         0.7,
         "fan",
+        0.0,
+        "slow",
+        70.0,
         antagonists=["pectoral_mayor"],
     ),
     MuscleSpec(
-        "trapecio", "cervical", "shoulder_r", "elevación/retracción escapular", 0.4, "triangular"
+        "trapecio",
+        "cervical",
+        "shoulder_r",
+        "elevación/retracción escapular",
+        0.4,
+        "triangular",
+        0.0,
+        "mixed",
+        40.0,
     ),
 ]
 
@@ -155,17 +189,25 @@ def build_twin(person_id: str = "default") -> DigitalTwin:
     sk = build_skeleton()
     muscles: dict[str, Muscle] = {}
     for spec in MUSCLE_CATALOG:
+        o_pt = BONE_LANDMARKS.get(spec.origin, (0.0, 0.0, 0.0))
+        i_pt = BONE_LANDMARKS.get(spec.insertion, (0.0, 0.0, 0.0))
         muscles[spec.name] = Muscle(
             name=spec.name,
             origin=spec.origin,
             insertion=spec.insertion,
             volume=spec.volume,
+            shape=spec.shape,
+            pennation_angle=spec.pennation_angle,
+            fiber_type=spec.fiber_type,
+            max_force=spec.max_force if spec.max_force > 0 else spec.volume * 10.0,
+            origin_point=o_pt,
+            insertion_point=i_pt,
+            function=spec.function,
         )
     return DigitalTwin(person_id=person_id, skeleton=sk, muscles=muscles)
 
 
 def muscle_force_vector(spec: MuscleSpec) -> np.ndarray:
-    """Vector de fuerza unitario desde origen a inserción."""
     o = np.asarray(BONE_LANDMARKS.get(spec.origin, (0, 0, 0)), dtype=float)
     i = np.asarray(BONE_LANDMARKS.get(spec.insertion, (0, 0, 0)), dtype=float)
     v = i - o

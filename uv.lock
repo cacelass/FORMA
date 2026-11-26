@@ -819,7 +819,7 @@ wheels = [
 
 [[package]]
 name = "forma"
-version = "0.1.23"
+version = "0.1.24"
 source = { editable = "." }
 dependencies = [
     { name = "numpy" },
